@@ -291,17 +291,21 @@
 		},
 
 		place: function(){
-                        if(this.isInline) return;
-			var zIndex = parseInt(this.element.parents().filter(function() {
-							return $(this).css('z-index') != 'auto';
-						}).first().css('z-index'))+10;
-			var offset = this.component ? this.component.offset() : this.element.offset();
-			this.picker.css({
-				top: offset.top + this.height,
-				left: offset.left,
-				zIndex: zIndex
+		    var offset = this.component ? this.component.offset() : this.element.offset();
+		    var topPos
+		    switch ($(this.element).data('placement')) {
+		        case "top":
+		            topPos = (offset.top + this.height) - 260;
+		            break;
+		        default:
+		            topPos = (offset.top + this.height);
+		            break;
+		    }
+		    this.picker.css({
+		        top: topPos,
+				left: offset.left
 			});
-		},
+	    },
 
 		update: function(){
             var date, fromArgs = false;
