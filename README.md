@@ -217,6 +217,15 @@ Format a component.
 </div>
 ```
 
+12/29/2012
+I added a new attribute data-placement which for now just has "top" as a setting it will use, I hacked this in on a project I am working on so feel free to fork this project and make this more robust, here is the example of its usage:
+
+```html
+<div class="input-append date" id="datepicker" data-placement="top" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+    <input class="span2" size="16" type="text" value="12-02-2012">
+    <span class="add-on"><i class="icon-th"></i></span>
+</div>
+```
 ## Methods
 
 ### .datepicker(options)
